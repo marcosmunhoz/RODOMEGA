@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEJEM/DELEGADA</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-image: url('https://wallpapers.com/images/hd/military-desktop-4fgrho34cpv46gpj.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      font-family: Arial, sans-serif;
+      cursor: url('https://cur.cursors-4u.net/military/mil-2/mil107.cur'), auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 400px;
+      width: 100%;
+      padding: 30px;
+      border: 2px solid black;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      box-sizing: border-box;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 5px;
+      margin: 10px 0;
+      font-size: 1em;
+      border-radius: 5px;
+      border: 1px solid #333;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    @media (max-width: 500px) {
+      body {
+        padding: 10px;
+      }
+
+      .container {
+        padding: 15px;
+      }
+
+      input, button {
+        font-size: 0.95em;
+      }
+    }
+  </style>
+
+  <script>
+    function abrirLink() {
+      const numero = document.getElementById("numero").value.trim();
+      const baseUrl = "https://sistemasadmin.intranet.policiamilitar.sp.gov.br/escala/arrelpreesc.aspx?";
+
+      const somTiro = document.getElementById("tiro");
+      somTiro.currentTime = 0;
+      somTiro.play();
+
+      if (numero !== "") {
+        setTimeout(() => {
+          window.location.href = baseUrl + numero;
+        }, 300);
+      } else {
+        alert("Por favor, digite o ID.");
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <div class="container">
+    <h2 style="text-align: center;">Consultar Escala</h2>
+    <label for="numero">Insira o ID:</label>
+    <input type="text" id="numero" placeholder="ID: 123456">
+    <button onclick="abrirLink()">Entrar</button>
+  </div>
+
+  <!-- Som de tiro -->
+  <audio id="tiro" src="https://www.fesliyanstudios.com/play-mp3/387"></audio>
+
+  <!-- Música de fundo -->
+  <audio id="musicaFundo" src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" autoplay loop></audio>
+
+</body>
+</html>
