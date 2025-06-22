@@ -1,129 +1,23 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-<!-- Logo na aba -->
-  <link rel="icon" type="image/png" src="html\logotipo.png"> <!-- troque pelo nome real -->
-  <meta charset="UTF-8">
-  <title>RODOMEGA</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsivo -->
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html, body {
-      height: 100%;
-      font-family: Arial, sans-serif;
-      background-color: #000;
-      color: #ffcc00;
-    }
-
-    .capa {
-      width: 100%;
-      height: 250px;
-      background-image: url('html/sirene.gif');
-      background-size: cover;
-      background-position: center;
-    }
-
-    nav {
-      background-color: #ffcc00;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    nav a {
-      color: #000;
-      text-decoration: none;
-      padding: 15px 20px;
-      font-weight: bold;
-      flex: 1 1 180px;
-      text-align: center;
-      transition: background 0.3s;
-      border: 2px solid #000;      /* ← contorno preto */
-      margin: 5px;                 /* ← espaço entre botões */
-      border-radius: 5px;          /* ← cantos arredondados (opcional) */
-    }
-
-    nav a:hover {
-      background-color: #000;
-      color: #ffcc00;
-    }
-
-    .conteudo {
-      padding: 20px;
-      text-align: center;
-      padding-bottom: 100px; /* espaço para rodapé fixo */
-    }
-
-    .conteudo img {
-      display: block;
-      margin: 20px auto;
-      max-width: 90%;
-      height: auto;
-    }
-
-    footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background-color: #111;
-      text-align: center;
-      padding: 15px;
-      font-size: 14px;
-      color: #ffcc00;
-      z-index: 100;
-    }
-
-    @media (max-width: 600px) {
-      nav a {
-        flex: 1 1 100%;
-      }
-
-      .conteudo h1 {
-        font-size: 20px;
-      }
-
-      footer {
-        font-size: 12px;
-        padding: 10px;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <div class="capa"></div>
-
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLScAsayIw8JXcY8sIYy2ZQViqbAoKUSZOoKL27mnwXDIPjgK5w/viewform">Manutenção 1º Escalão</a>
-    <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=VAxWvfUh9UqnCmelKDNpc2he-LboKNBOl8SkVLbrZWFUME1BQ1dWUVJFVUI2WTM1RkNVQTA4OVJPWi4u&origin=QRCode">Amigos do Trecho</a>
-    <a href="http://intranet.policiamilitar.sp.gov.br/">Intranet</a>
-    <a href="http://10.61.15.39/Login?ReturnUrl=%2fHome%3fb%3d20%2f06%2f2025%26RSO%3df0rpftzdr6bqs3zy0ZIb6A%3d%3d&b=20/06/2025&RSO=f0rpftzdr6bqs3zy0ZIb6A==">PPRI</a>
-    <a href="https://www.simsgmder.der.sp.gov.br/simsgmder/pages/login.xhtml">SIM-DER</a>
-    <a href="http://cobomonline.ccb.policiamilitar.sp.gov.br/Singes/login">Assentamento Individual</a>
-    <a href="http://sistemasopr.intranet.policiamilitar.sp.gov.br/Pmesp.ROe/#/login/">BOPM</a>
-    <a href="html/Consulta.html">Consultar Dejem/Delegada</a>
-    <a href="https://correio.policiamilitar.sp.gov.br/names.nsf?Login">Inotes</a>
-    <a href="https://citrix.policiamilitar.sp.gov.br/Citrix/PMESPWeb/">Citrix</a>
-    <a href="https://cronotacografo.rbmlq.gov.br/certificados/consultar">Cronotacógrafo</a>
-    <a href="https://minhaarea.sp.gov.br/plataformasp">SEI</a>
-  </nav>
-
-  <div class="conteudo">
-    <h1>4º BPRv - 4ª Cia - 1º Pel</h1>
-    <p>EQUIPE C</p>
-    <img src="html/logotipo.png" alt="Imagem abaixo do título">
-  </div>
-
-  <footer>
-    <p>Desenvolvido pelo Sd PM 194528-9 GUIDINI.</p>
-  </footer>
-
-</body>
-</html>
+<aside class="sidebar">
+  <div class="menu-logo">RODOMEGA</div>
+  <ul class="menu">
+    <li><a href="index.html">🏠 Início</a></li>
+    <li>
+      <span class="submenu-toggle">🛠️ Manutenção</span>
+      <ul class="submenu">
+        <li><a href="https://docs.google.com/forms/...">1º Escalão</a></li>
+        <li><a href="https://forms.office.com/...">Amigos do Trecho</a></li>
+      </ul>
+    </li>
+    <li><a href="http://intranet.policiamilitar.sp.gov.br/">📡 Intranet</a></li>
+    <li><a href="http://10.61.15.39/Login">📊 PPRI</a></li>
+    <li><a href="https://www.simsgmder.der.sp.gov.br/">📁 SIM-DER</a></li>
+    <li><a href="http://cobomonline.ccb.policiamilitar.sp.gov.br/Singes/login">📄 Assentamento</a></li>
+    <li><a href="http://sistemasopr.intranet.policiamilitar.sp.gov.br/Pmesp.ROe/#/login/">📋 BOPM</a></li>
+    <li><a href="html/Consulta.html">🔍 Dejem/Delegada</a></li>
+    <li><a href="https://correio.policiamilitar.sp.gov.br/names.nsf?Login">✉️ Inotes</a></li>
+    <li><a href="https://citrix.policiamilitar.sp.gov.br/Citrix/PMESPWeb/">💻 Citrix</a></li>
+    <li><a href="https://cronotacografo.rbmlq.gov.br/certificados/consultar">⏱️ Cronotacógrafo</a></li>
+    <li><a href="https://minhaarea.sp.gov.br/plataformasp">🗂️ SEI</a></li>
+  </ul>
+</aside>
