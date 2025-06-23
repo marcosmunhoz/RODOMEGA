@@ -34,18 +34,18 @@
     }
 
     .sugestao-btn {
-      position: fixed;
-      bottom: 80px;
-      left: 20px;
-      background-color: #ffcc00;
-      color: #000;
-      border: none;
-      padding: 10px 15px;
-      cursor: pointer;
-      border-radius: 5px;
-      font-weight: bold;
-      z-index: 1001;
-    }
+  position: fixed;
+  bottom: 80px;
+  right: 20px; /* ← Alterado de left para right */
+  background-color: #ffcc00;
+  color: #000;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  z-index: 1001;
+}
 
     .sugestao-btn.enviado {
       background-color: #00cc66;
@@ -53,17 +53,17 @@
     }
 
     .sugestao-popup {
-      display: none;
-      position: fixed;
-      bottom: 120px;
-      left: 20px;
-      background-color: #111;
-      padding: 20px;
-      border-radius: 10px;
-      border: 2px solid #ffcc00;
-      max-width: 300px;
-      z-index: 1002;
-    }
+  display: none;
+  position: fixed;
+  bottom: 120px;
+  right: 20px; /* ← Alterado de left para right */
+  background-color: #111;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #ffcc00;
+  max-width: 300px;
+  z-index: 1002;
+}
 
     .sugestao-popup input,
     .sugestao-popup textarea {
