@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mapa de Trecho</title>
+ 
   <style>
     body {
       background-color: #000;
@@ -192,9 +193,51 @@
      <!-- Adicione as demais SPs da mesma forma... -->
 
 
+<style>
+  .tabela {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+  table {
+    width: 100%;
+    background: black;
+    color: yellow;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 6px;
+    border: 1px solid yellow;
+    text-align: center;
+  }
+</style>
 
-      
-<!-- Botão já existente para abrir o carrossel -->
+<script>
+  const carousel = document.getElementById('carousel');
+  let startX = 0;
+  let currentIndex = 0;
+
+  carousel.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  carousel.addEventListener('touchend', (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const diffX = endX - startX;
+
+    if (Math.abs(diffX) > 50) {
+      if (diffX < 0 && currentIndex < carousel.children.length - 1) {
+        currentIndex++;
+      } else if (diffX > 0 && currentIndex > 0) {
+        currentIndex--;
+      }
+      carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+  });
+</script>
+
+
+    <!-- Botão já existente para abrir o carrossel -->
 <button onclick="document.getElementById('carousel-container').style.display = 'block'">
   Placas R-19
 </button>
@@ -227,8 +270,6 @@
     </div>
 
     <!-- Adicione as demais SPs da mesma forma... -->
-
-
 
 <style>
   .tabela {
@@ -272,6 +313,7 @@
     }
   });
 </script>
+    
     <iframe src="https://www.google.com/maps/d/embed?mid=1JceMEgD2KnOFb5aGK5tLGBCu7ZOxP80&amp;ehbc=2E312F&amp;noprof=1" allowfullscreen></iframe>
   </div>
 
