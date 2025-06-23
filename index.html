@@ -1,154 +1,128 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!DOCTYPE html><html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <title>RODOMEGA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="html/logotipo.png">
-
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-    }
+    }html, body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  color: #ffcc00;
+}
 
-    html, body {
-      height: 100%;
-      font-family: Arial, sans-serif;
-      background-color: #000;
-      color: #ffcc00;
-    }
+.menu-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1001;
+  background-color: #ffcc00;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  color: #000;
+  font-weight: bold;
+}
 
-    /* Menu lateral */
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 220px;
-      height: 100%;
-      background-color: #000;
-      color: #ffcc00;
-      padding: 20px 0;
-      overflow-y: auto;
-      z-index: 1000;
-      border-right: 2px solid #ffcc00;
-    }
+.sidebar {
+  position: fixed;
+  left: -220px;
+  top: 0;
+  width: 220px;
+  height: 100%;
+  background-color: #111;
+  color: #ffcc00;
+  padding-top: 60px;
+  overflow-y: auto;
+  transition: left 0.3s;
+  z-index: 1000;
+}
 
-    .menu-logo {
-      font-size: 20px;
-      font-weight: bold;
-      text-align: center;
-      margin-bottom: 20px;
-      color: #ffcc00;
-    }
+.sidebar.open {
+  left: 0;
+}
 
-    .menu {
-      list-style: none;
-      padding: 0;
-    }
+.menu-logo {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
 
-    .menu li {
-      padding: 10px 20px;
-      border-bottom: 1px solid #333;
-    }
+.menu {
+  list-style: none;
+  padding: 0 10px;
+}
 
-    .menu li a,
-    .submenu-toggle {
-      color: #ffcc00;
-      text-decoration: none;
-      display: block;
-      transition: 0.3s;
-      cursor: pointer;
-    }
+.menu li {
+  padding: 10px;
+  transition: background 0.3s;
+  border-bottom: 1px solid #333;
+}
 
-    .menu li a:hover,
-    .submenu-toggle:hover {
-      background-color: #ffcc00;
-      color: #000;
-      border-radius: 5px;
-    }
+.menu li:hover {
+  background-color: #ffcc00;
+  color: #000;
+  border-radius: 4px;
+}
 
-    .submenu {
-      display: none;
-      list-style: none;
-      padding-left: 15px;
-      margin-top: 5px;
-    }
+.menu li a,
+.submenu-toggle {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+}
 
-    .menu li.active .submenu {
-      display: block;
-    }
+.submenu {
+  display: none;
+  list-style: none;
+  padding-left: 15px;
+}
 
-    .submenu li {
-      padding: 5px 0;
-    }
+.menu li.active .submenu {
+  display: block;
+}
 
-    /* Conteúdo e capa */
-    .capa {
-      width: 100%;
-      height: 250px;
-      background-image: url('html/sirene.gif');
-      background-size: cover;
-      background-position: center;
-      margin-left: 220px;
-    }
+.capa {
+  width: 100%;
+  height: 250px;
+  background-image: url('html/sirene.gif');
+  background-size: cover;
+  background-position: center;
+}
 
-    .conteudo {
-      margin-left: 220px;
-      padding: 20px;
-      text-align: center;
-      padding-bottom: 100px;
-    }
+.conteudo {
+  margin-left: 0;
+  padding: 20px;
+  text-align: center;
+  padding-bottom: 100px;
+}
 
-    .conteudo img {
-      display: block;
-      margin: 20px auto;
-      max-width: 90%;
-      height: auto;
-    }
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #111;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  color: #ffcc00;
+  z-index: 100;
+}
 
-    /* Rodapé fixo */
-    footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background-color: #111;
-      text-align: center;
-      padding: 15px;
-      font-size: 14px;
-      color: #ffcc00;
-      z-index: 100;
-    }
-
-    @media (max-width: 600px) {
-      .sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
-        border-right: none;
-      }
-
-      .capa, .conteudo {
-        margin-left: 0;
-      }
-
-      .conteudo h1 {
-        font-size: 20px;
-      }
-
-      footer {
-        font-size: 12px;
-        padding: 10px;
-      }
-    }
   </style>
 </head>
 <body>
-
-  <!-- Menu lateral -->
-  <aside class="sidebar">
+  <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>  <aside class="sidebar" id="sidebar">
     <div class="menu-logo">4º BPRv - 4ª Cia - 1º Pel</div>
     <ul class="menu">
       <li><a href="index.html">🏠 Início</a></li>
@@ -159,17 +133,17 @@
           <li><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=VAxWvfUh9UqnCmelKDNpc2he-LboKNBOl8SkVLbrZWFUME1BQ1dWUVJFVUI2WTM1RkNVQTA4OVJPWi4u&origin=QRCode">Amigos do Trecho</a></li>
         </ul>
       </li>
- <li>
-  <span class="submenu-toggle">📡 Links Intranet </span>
-  <ul class="submenu">
-      <li><a href="http://intranet.policiamilitar.sp.gov.br/">📡 Links Intranet </a></li>
-      <li><a href="http://10.61.15.39/Login">📊 PPRI</a></li>
-      <li><a href="http://cobomonline.ccb.policiamilitar.sp.gov.br/Singes/login">👮🏻‍♂️ Assentamento Individual</a></li>
-      <li><a href="http://sistemasopr.intranet.policiamilitar.sp.gov.br/Pmesp.ROe/#/login/">📋 BOPM</a></li>
-      <li><a href="html/Consulta.html">🔍 Consultar Dejem/Delegada</a></li>
-      <li><a href="https://citrix.policiamilitar.sp.gov.br/Citrix/PMESPWeb/">💻 Citrix</a></li>    
-  </ul>
-  </li>
+      <li>
+        <span class="submenu-toggle">📡 Links Intranet</span>
+        <ul class="submenu">
+          <li><a href="http://intranet.policiamilitar.sp.gov.br/">📡 Intranet</a></li>
+          <li><a href="http://10.61.15.39/Login">📊 PPRI</a></li>
+          <li><a href="http://cobomonline.ccb.policiamilitar.sp.gov.br/Singes/login">👮🏻‍♂️ Assentamento Individual</a></li>
+          <li><a href="http://sistemasopr.intranet.policiamilitar.sp.gov.br/Pmesp.ROe/#/login/">📋 BOPM</a></li>
+          <li><a href="html/Consulta.html">🔍 Consultar Dejem/Delegada</a></li>
+          <li><a href="https://citrix.policiamilitar.sp.gov.br/Citrix/PMESPWeb/">💻 Citrix</a></li>
+        </ul>
+      </li>
       <li><a href="https://www.simsgmder.der.sp.gov.br/simsgmder/pages/login.xhtml">📁 SIM-DER</a></li>
       <li><a href="https://correio.policiamilitar.sp.gov.br/names.nsf?Login">✉️ Inotes</a></li>
       <li><a href="https://cronotacografo.rbmlq.gov.br/certificados/consultar">⏱️ Cronotacógrafo</a></li>
@@ -177,31 +151,19 @@
       <li><a href="https://www.google.com/maps/d/u/0/edit?mid=1JceMEgD2KnOFb5aGK5tLGBCu7ZOxP80&usp=sharing">🗺️ Mapa da Área</a></li>
       <li><a href="#">☎️ Contatos Úteis</a></li>
     </ul>
-  </aside>
-
-  <!-- Capa -->
-  <div class="capa"></div>
-
-  <!-- Conteúdo principal -->
-  <div class="conteudo">
-  
-    
-  </div>
-
-  <!-- Rodapé -->
-  <footer>
+  </aside>  <div class="capa"></div>
+  <div class="conteudo"></div>  <footer>
     <p>Desenvolvido pelo Sd PM 194528-9 GUIDINI.</p>
-  </footer>
+  </footer>  <script>
+    function toggleMenu() {
+      document.getElementById("sidebar").classList.toggle("open");
+    }
 
-  <!-- JavaScript para submenus -->
-  <script>
     const toggles = document.querySelectorAll('.submenu-toggle');
     toggles.forEach(toggle => {
       toggle.addEventListener('click', () => {
         toggle.parentElement.classList.toggle('active');
       });
     });
-  </script>
-
-</body>
+  </script></body>
 </html>
