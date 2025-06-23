@@ -12,7 +12,6 @@
       margin: 0;
       padding: 0;
     }
-
     button {
       background-color: #ffcc00;
       color: #000;
@@ -23,43 +22,46 @@
       border-radius: 5px;
       margin: 10px;
     }
-
+    .carousel-container {
+      display: none;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
+    .carousel {
+      display: flex;
+      transition: transform 0.3s ease;
+    }
     .tabela {
       min-width: 100%;
       box-sizing: border-box;
       padding: 10px;
     }
-
     table {
       width: 100%;
       background: black;
       color: yellow;
       border-collapse: collapse;
     }
-
     th, td {
       padding: 6px;
       border: 1px solid yellow;
       text-align: center;
     }
-
     .mapa-final {
       margin-top: 80px;
       padding: 10px;
       background-color: #111;
     }
-
     iframe {
       width: 100%;
       height: 500px;
       border: none;
     }
-
     @media (max-width: 600px) {
       table, th, td {
         font-size: 12px;
       }
-
       iframe {
         height: 300px;
       }
@@ -67,150 +69,58 @@
   </style>
 </head>
 <body>
-
   <a href="../index.html"><button>🏠 Voltar para Início</button></a>
+  <button onclick="document.getElementById('carousel-container').style.display='block'">Meu Trecho</button>
 
-  <!-- Botões -->
-  <button onclick="document.getElementById('trecho').style.display='block'">Meu Trecho</button>
-  <button onclick="document.getElementById('placas').style.display='block'">Placas R-19 / R-27</button>
-
-  <!-- Seção: Meu Trecho -->
-  <div class="tabela"><h3>SP-133</h3>
-    <table border="1">
-      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
-      <tr><td>João Hermano Neto</td><td>000,000</td><td>010,649</td><td>Limeira</td></tr>
-    </table>
+  <div id="carousel-container" class="carousel-container">
+    <div id="carousel" class="carousel">
+      <div class="tabela"><h3>SP-133</h3><table><tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr><tr><td>João Hermano Neto</td><td>000,000</td><td>010,649</td><td>Limeira</td></tr></table></div>
+      <div class="tabela"><h3>SP-135</h3><table><tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr><tr><td>Margarida da Graça Martins</td><td>000,000</td><td>008,539</td><td>Santa B. d'Oeste</td></tr></table></div>
+      <div class="tabela"><h3>SP-147</h3><table><tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr><tr><td>Eng. João Tosello</td><td>090,950</td><td>106,320</td><td>Limeira</td></tr></table></div>
+      <div class="tabela"><h3>SP-147</h3><table><tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr><tr><td>Dep. Laércio Corte</td><td>111,748</td><td>122,849</td><td>Mogi Mirim</td></tr></table></div>
+      <div class="tabela"><h3>SP-151</h3><table><tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr><tr><td>Dr.João Mendes da S. Junior</td><td>000,000</td><td>004,779</td><td>Limeira</td></tr></table></div>
+      <div class="tabela"><h3>SP-191</h3><table><tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr><tr><td>Wilson Finardi</td><td>025,300</td><td>058,639</td><td>Araras</td></tr></table></div>
+      <div class="tabela"><h3>SP-304</h3><table><tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr><tr><td>Luiz de Queiroz</td><td>131,500</td><td>146,556</td><td>Santa B. d'Oeste</td></tr></table></div>
+      <div class="tabela"><h3>SP-306</h3><table><tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr><tr><td>Luiz Ometto</td><td>009,730</td><td>039,259</td><td>Santa B. d'Oeste</td></tr></table></div>
+      <div class="tabela"><h3>SP-310</h3><table><tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr><tr><td>Whashington Luis</td><td>153,250</td><td>161,889</td><td>Corderópolis</td></tr></table></div>
+      <div class="tabela"><h3>SP-316</h3><table><tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr><tr><td>Constantino Peruchi</td><td>157,000</td><td>165,489</td><td>Cordeirópolis</td></tr></table></div>
+      <div class="tabela"><h3>SP-330</h3><table><tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr><tr><td>Anhanguera</td><td>090,950</td><td>106,320</td><td>Limeira</td></tr></table></div>
+      <div class="tabela"><h3>SP-330</h3><table><tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr><tr><td>Anhanguera</td><td>152,360</td><td>160,399</td><td>Cordeirópolis</td></tr></table></div>
+      <div class="tabela"><h3>SP-330</h3><table><tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr><tr><td>Anhanguera</td><td>160,400</td><td>181,269</td><td>Araras</td></tr></table></div>
+      <div class="tabela"><h3>SP-348</h3><table><tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr><tr><td>Bandeirantes</td><td>123,590</td><td>139,319</td><td>Sta B. d'Oeste</td></tr></table></div>
+      <div class="tabela"><h3>SP-348</h3><table><tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr><tr><td>Bandeirantes</td><td>139,320</td><td>165,819</td><td>Limeira</td></tr></table></div>
+      <div class="tabela"><h3>SP-348</h3><table><tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr><tr><td>Bandeirantes</td><td>165,820</td><td>172,000</td><td>Cordeirópolis</td></tr></table></div>
+      <div class="tabela"><h3>SPI-165/330</h3><table><tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr><tr><td>Gilberto C. P. Telles</td><td>000,000</td><td>004,670</td><td>Araras</td></tr></table></div>
     </div>
-
-    <div class="tabela"><h3>SP-135</h3>
-    <table border="1">
-      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
-      <tr><td>Margarida da Graça Martins</td><td>000,000</td><td>008,539</td><td>Santa B. d'Oeste</td></tr>
-    </table>
-    </div>
-
-    <div class="tabela"><h3>SP-147</h3>
-    <table border="1">
-      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
-      <tr><td>Eng. João Tosello</td><td>090,950</td><td>106,320</td><td>Limeira</td></tr>
-    </table>
-    </div>
-
-    <div class="tabela"><h3>SP-147</h3>
-    <table border="1">
-      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
-      <tr><td>Dep. Laércio Corte</td><td>111,748</td><td>122,849</td><td>Mogi Mirim</td></tr>
-    </table>
-    </div>
-
-    <div class="tabela"><h3>SP-151</h3>
-    <table border="1">
-      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
-      <tr><td>Dr.João Mendes da S. Junior</td><td>000,000</td><td>004,779</td><td>Limeira</td></tr>
-    </table>
-    </div>
-
-    <div class="tabela"><h3>SP-191</h3>
-    <table border="1">
-      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
-      <tr><td>Wilson Finardi</td><td>025,300</td><td>058,639</td><td>Araras</td></tr>
-    </table>
-    </div>
-
-    <div class="tabela"><h3>SP-304</h3>
-    <table border="1">
-      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
-      <tr><td>Luiz de Queiroz</td><td>131,500</td><td>146,556</td><td>Santa B. d'Oeste</td></tr>
-    </table>
-    </div>
-
-    <div class="tabela"><h3>SP-306</h3>
-    <table border="1">
-      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
-      <tr><td>Luiz Ometto</td><td>009,730</td><td>039,259</td><td>Santa B. d'Oeste</td></tr>
-    </table>
-    </div>
-
-    <div class="tabela"><h3>SP-310</h3>
-    <table border="1">
-      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
-      <tr><td>Whashington Luis</td><td>153,250</td><td>161,889</td><td>Corderópolis</td></tr>
-    </table>
-    </div>
-
-    <div class="tabela"><h3>SP-316</h3>
-    <table border="1">
-      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
-      <tr><td>Constantino Peruchi</td><td>157,000</td><td>165,489</td><td>Cordeirópolis</td></tr>
-    </table>
-    </div>
-
-    <div class="tabela"><h3>SP-330</h3>
-    <table border="1">
-      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
-      <tr><td>Anhanguera</td><td>090,950</td><td>106,320</td><td>Limeira</td></tr>
-    </table>
-    </div>
-
-    <div class="tabela"><h3>SP-330</h3>
-    <table border="1">
-      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
-      <tr><td>Anhanguera</td><td>152,360</td><td>160,399</td><td>Cordeirópolis</td></tr>
-    </table>
-    </div>
-
-    <div class="tabela"><h3>SP-330</h3>
-    <table border="1">
-      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
-      <tr><td>Anhanguera</td><td>160,400</td><td>181,269</td><td>Araras</td></tr>
-    </table>
-    </div>
-
-    <div class="tabela"><h3>SP-348</h3>
-    <table border="1">
-      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
-      <tr><td>Bandeirantes</td><td>123,590</td><td>139,319</td><td>Sta B. d'Oeste</td></tr>
-    </table>
-    </div>
-
-    <div class="tabela"><h3>SP-348</h3>
-    <table border="1">
-      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
-      <tr><td>Bandeirantes</td><td>139,320</td><td>165,819</td><td>Limeira</td></tr>
-    </table>
-    </div>
-
-    <div class="tabela"><h3>SP-348</h3>
-    <table border="1">
-      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
-      <tr><td>Bandeirantes</td><td>165,820</td><td>172,000</td><td>Cordeirópolis</td></tr>
-    </table>
-    </div>
-
-    <div class="tabela"><h3>SPI-165/330</h3>
-    <table border="1">
-      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
-      <tr><td>Gilberto C. P. Telles</td><td>000,000</td><td>004,670</td><td>Araras</td></tr>
-    </table>
   </div>
 
-  <!-- Seção: Placas -->
-  <div id="placas" style="display: none;">
-    <div class="tabela"><h3>SP 348</h3>
-      <table>
-        <tr><th>R-19 Oeste</th><th>R-27 Oeste</th><th>R-19 Leste</th><th>R-27 Leste</th></tr>
-        <tr><td>Placa R-19</td><td>Placa R-27</td><td>Placa R-19</td><td>Placa R-27</td></tr>
-      </table>
-    </div>
-    <!-- Adicione outras tabelas de SPs -->
-  </div>
-
-  <!-- Mapa final, separado -->
   <div class="mapa-final">
     <h3 style="text-align: center;">🗺️ Mapa do Trecho Completo</h3>
     <iframe src="https://www.google.com/maps/d/embed?mid=1JceMEgD2KnOFb5aGK5tLGBCu7ZOxP80&amp;ehbc=2E312F&amp;noprof=1" allowfullscreen></iframe>
   </div>
 
+  <script>
+    const carousel = document.getElementById('carousel');
+    let startX = 0;
+    let currentIndex = 0;
+
+    carousel.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    carousel.addEventListener('touchend', (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const diffX = endX - startX;
+
+      if (Math.abs(diffX) > 50) {
+        if (diffX < 0 && currentIndex < carousel.children.length - 1) {
+          currentIndex++;
+        } else if (diffX > 0 && currentIndex > 0) {
+          currentIndex--;
+        }
+        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }
+    });
+  </script>
 </body>
 </html>
-
