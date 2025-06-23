@@ -59,7 +59,7 @@
 </head>
 <body>
     <a href="../index.html"><button>🏠 Voltar para Início</button></a>
-    <button id="toggleTabelaBtn" onclick="toggleTabela()">▶️ Mostrar Tabela de Trecho</button>
+    <button id="toggleTabelaBtn" onclick="toggleTabela()">▶️ Mostrar Trechos</button>
     <div id="tabelaTrecho" style="height: 250px; overflow-y: auto; margin-top: 10px; display: none;">
       <table>
         <thead>
@@ -91,9 +91,85 @@
         </tbody>
       </table>
     </div>
+<!-- Botão já existente para abrir o carrossel -->
+<button onclick="document.getElementById('carousel-container').style.display = 'block'">
+  Ver Tabelas por SP
+</button>
 
-    <button onclick="alert('Nova tabela futura!')">➕ Adicionar Nova Tabela</button>
+<!-- Container do carrossel -->
+<div id="carousel-container" style="display:none; overflow: hidden; position: relative;">
+  <div id="carousel" style="display: flex; transition: transform 0.3s ease;">
+    
+    <!-- Tabelas por SP -->
+    
+    <div class="tabela"><h3>SP 348</h3>
+    <table border="1">
+      <tr><th>R-19 Oeste</th><th>R-27 Oeste</th><th>R-19 Leste</th><th>R-27 Leste</th></tr>
+      <tr><td>Placa R-19</td><td>Placa R-27</td><td>Placa R-19</td><td>Placa R-27</td></tr>
+    </table>
+    </div>
 
+    <div class="tabela"><h3>SP 330</h3>
+    <table border="1">
+      <tr><th>R-19 Oeste</th><th>R-27 Oeste</th><th>R-19 Leste</th><th>R-27 Leste</th></tr>
+      <tr><td>Placa R-19</td><td>Placa R-27</td><td>Placa R-19</td><td>Placa R-27</td></tr>
+    </table>
+    </div>
+
+    <div class="tabela"><h3>SP 133</h3>
+    <table border="1">
+      <tr><th>R-19 Oeste</th><th>R-27 Oeste</th><th>R-19 Leste</th><th>R-27 Leste</th></tr>
+      <tr><td>Placa R-19</td><td>Placa R-27</td><td>Placa R-19</td><td>Placa R-27</td></tr>
+    </table>
+    </div>
+
+    <!-- Adicione as demais SPs da mesma forma... -->
+
+  </div>
+</div>
+
+<style>
+  .tabela {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+  table {
+    width: 100%;
+    background: black;
+    color: yellow;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 6px;
+    border: 1px solid yellow;
+    text-align: center;
+  }
+</style>
+
+<script>
+  const carousel = document.getElementById('carousel');
+  let startX = 0;
+  let currentIndex = 0;
+
+  carousel.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  carousel.addEventListener('touchend', (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const diffX = endX - startX;
+
+    if (Math.abs(diffX) > 50) {
+      if (diffX < 0 && currentIndex < carousel.children.length - 1) {
+        currentIndex++;
+      } else if (diffX > 0 && currentIndex > 0) {
+        currentIndex--;
+      }
+      carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+  });
+</script>
     <iframe src="https://www.google.com/maps/d/embed?mid=1JceMEgD2KnOFb5aGK5tLGBCu7ZOxP80&amp;ehbc=2E312F&amp;noprof=1" allowfullscreen></iframe>
   </div>
 
