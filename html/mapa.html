@@ -1,14 +1,73 @@
-<div class="capa" style="margin-top: 40px;">
-  <button onclick="toggleTabela()" style="background-color: #ffcc00; color: #000; border: none; padding: 10px 20px; font-weight: bold; cursor: pointer; border-radius: 5px;">📋 Mostrar Tabela de Trecho</button>
-  <div id="tabelaTrecho" style="height: 250px; overflow-y: auto; margin-top: 10px; display: none;">
-    <div style="padding: 0; min-width: 600px;">
-      <table style="width: 100%; border-collapse: collapse; color: #ffcc00; background-color: #000;">
-        <thead style="position: sticky; top: 0; background-color: #111;">
-          <tr style="border-bottom: 2px solid #ffcc00;">
-            <th style="padding: 10px; border: 1px solid #ffcc00;">Rodovia</th>
-            <th style="padding: 10px; border: 1px solid #ffcc00;">KM Inicial</th>
-            <th style="padding: 10px; border: 1px solid #ffcc00;">KM Final</th>
-            <th style="padding: 10px; border: 1px solid #ffcc00;">Município</th>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa de Trecho</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #ffcc00;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .capa {
+      padding: 40px 20px 20px;
+    }
+    button {
+      background-color: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #ffcc00;
+      background-color: #000;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ffcc00;
+      text-align: left;
+    }
+    thead {
+      position: sticky;
+      top: 0;
+      background-color: #111;
+    }
+    iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+      margin-top: 20px;
+    }
+    @media (max-width: 600px) {
+      table, thead, tbody, th, td, tr {
+        font-size: 12px;
+      }
+      iframe {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="capa">
+    <button id="toggleTabelaBtn" onclick="toggleTabela()">▶️ Mostrar Tabela de Trecho</button>
+    <div id="tabelaTrecho" style="height: 250px; overflow-y: auto; margin-top: 10px; display: none;">
+      <table>
+        <thead>
+          <tr>
+            <th>Rodovia</th>
+            <th>KM Inicial</th>
+            <th>KM Final</th>
+            <th>Município</th>
           </tr>
         </thead>
         <tbody>
@@ -32,20 +91,24 @@
         </tbody>
       </table>
     </div>
+
+    <button onclick="alert('Nova tabela futura!')">➕ Adicionar Nova Tabela</button>
+
+    <iframe src="https://www.google.com/maps/d/embed?mid=1JceMEgD2KnOFb5aGK5tLGBCu7ZOxP80&amp;ehbc=2E312F&amp;noprof=1" allowfullscreen></iframe>
   </div>
-</div>
-<script>
-  function toggleTabela() {
-  const tabela = document.getElementById("tabelaTrecho");
-  const botao = event.target;
-  if (tabela.style.display === "none") {
-    tabela.style.display = "block";
-    botao.textContent = "📋 Ocultar Tabela de Trecho";
-  } else {
-    tabela.style.display = "none";
-    botao.textContent = "📋 Mostrar Tabela de Trecho";
-  }
-}
-</script>
-</div>
-<iframe src="https://www.google.com/maps/d/embed?mid=1JceMEgD2KnOFb5aGK5tLGBCu7ZOxP80&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
+
+  <script>
+    function toggleTabela() {
+      const tabela = document.getElementById("tabelaTrecho");
+      const botao = document.getElementById("toggleTabelaBtn");
+      if (tabela.style.display === "none" || tabela.style.display === "") {
+        tabela.style.display = "block";
+        botao.textContent = "🔽 Ocultar Tabela de Trecho";
+      } else {
+        tabela.style.display = "none";
+        botao.textContent = "▶️ Mostrar Tabela de Trecho";
+      }
+    }
+  </script>
+</body>
+</html>
