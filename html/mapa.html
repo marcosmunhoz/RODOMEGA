@@ -1,0 +1,50 @@
+<div class="capa" style="margin-top: 40px;">
+  <button onclick="toggleTabela()" style="background-color: #ffcc00; color: #000; border: none; padding: 10px 20px; font-weight: bold; cursor: pointer; border-radius: 5px;">📋 Mostrar Tabela de Trecho</button>
+  <div id="tabelaTrecho" style="height: 250px; overflow-y: auto; margin-top: 10px; display: none;">
+    <div style="padding: 0; min-width: 600px;">
+      <table style="width: 100%; border-collapse: collapse; color: #ffcc00; background-color: #000;">
+        <thead style="position: sticky; top: 0; background-color: #111;">
+          <tr style="border-bottom: 2px solid #ffcc00;">
+            <th style="padding: 10px; border: 1px solid #ffcc00;">Rodovia</th>
+            <th style="padding: 10px; border: 1px solid #ffcc00;">KM Inicial</th>
+            <th style="padding: 10px; border: 1px solid #ffcc00;">KM Final</th>
+            <th style="padding: 10px; border: 1px solid #ffcc00;">Município</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>SP-133 – João Hermano Neto</td><td>000,000</td><td>010,649</td><td>Limeira</td></tr>
+          <tr><td>SP-135 – Margarida da Graça Martins</td><td>000,000</td><td>008,539</td><td>Santa Bárbara d'Oeste</td></tr>
+          <tr><td>SP-147 – Eng. João Tosello</td><td>090,950</td><td>106,320</td><td>Limeira</td></tr>
+          <tr><td>SP-147 – Dep. Laércio Corte</td><td>111,748</td><td>122,849</td><td>Mogi Mirim</td></tr>
+          <tr><td>SP-151 – Dr. João Mendes da Silva Júnior</td><td>000,000</td><td>004,779</td><td>Limeira</td></tr>
+          <tr><td>SP-191 – Wilson Finardi</td><td>025,300</td><td>058,639</td><td>Araras</td></tr>
+          <tr><td>SP-304 – Luiz de Queiroz</td><td>131,500</td><td>146,556</td><td>Santa Bárbara d'Oeste</td></tr>
+          <tr><td>SP-306 – Luiz Ometto</td><td>009,730</td><td>039,259</td><td>Santa Bárbara d'Oeste</td></tr>
+          <tr><td>SP-310 – Washington Luís</td><td>153,250</td><td>161,889</td><td>Cordeirópolis</td></tr>
+          <tr><td>SP-316 – Constantino Peruchi</td><td>157,000</td><td>165,489</td><td>Cordeirópolis</td></tr>
+          <tr><td>SP-330 – Anhanguera (Limeira)</td><td>130,150</td><td>152,359</td><td>Limeira</td></tr>
+          <tr><td>SP-330 – Anhanguera (Cordeirópolis)</td><td>152,360</td><td>160,399</td><td>Cordeirópolis</td></tr>
+          <tr><td>SP-330 – Anhanguera (Araras)</td><td>160,400</td><td>181,269</td><td>Araras</td></tr>
+          <tr><td>SP-348 – Bandeirantes (Sta Bárbara d’Oeste)</td><td>123,590</td><td>139,319</td><td>Santa Bárbara d'Oeste</td></tr>
+          <tr><td>SP-348 – Bandeirantes (Limeira)</td><td>139,320</td><td>165,819</td><td>Limeira</td></tr>
+          <tr><td>SP-348 – Bandeirantes (Cordeirópolis)</td><td>165,820</td><td>172,000</td><td>Cordeirópolis</td></tr>
+          <tr><td>SPI-165/330 – Gilberto Carlos Penteado Telles</td><td>000,000</td><td>004,670</td><td>Araras</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<script>
+  function toggleTabela() {
+  const tabela = document.getElementById("tabelaTrecho");
+  const botao = event.target;
+  if (tabela.style.display === "none") {
+    tabela.style.display = "block";
+    botao.textContent = "📋 Ocultar Tabela de Trecho";
+  } else {
+    tabela.style.display = "none";
+    botao.textContent = "📋 Mostrar Tabela de Trecho";
+  }
+}
+</script>
+</div>
