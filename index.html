@@ -119,10 +119,67 @@ footer {
   z-index: 100;
 }
 
+.sugestao-btn {
+  position: fixed;
+  bottom: 80px;
+  left: 20px;
+  background-color: #ffcc00;
+  color: #000;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  z-index: 1001;
+}
+
+.sugestao-popup {
+  display: none;
+  position: fixed;
+  bottom: 120px;
+  left: 20px;
+  background-color: #111;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #ffcc00;
+  max-width: 300px;
+  z-index: 1002;
+}
+
+.sugestao-popup input,
+.sugestao-popup textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ffcc00;
+  border-radius: 5px;
+  background-color: #000;
+  color: #ffcc00;
+}
+
+.sugestao-popup button {
+  margin-top: 10px;
+  background-color: #ffcc00;
+  color: #000;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
   </style>
 </head>
 <body>
-  <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>  <aside class="sidebar" id="sidebar">
+  <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
+  <button class="sugestao-btn" onclick="toggleSugestao()">💬 Sugestão</button>  <div class="sugestao-popup" id="sugestaoPopup">
+    <form id="sugestaoForm" action="https://formspree.io/f/mblyzdqz" method="POST">
+      <input type="text" name="name" placeholder="Seu nome" required>
+      <input type="email" name="email" placeholder="Seu e-mail" required>
+      <textarea name="message" rows="4" placeholder="Sua sugestão..." required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>  <aside class="sidebar" id="sidebar">
     <div class="menu-logo">4º BPRv - 4ª Cia - 1º Pel</div>
     <ul class="menu">
       <li><a href="index.html">🏠 Início</a></li>
@@ -159,11 +216,21 @@ footer {
       document.getElementById("sidebar").classList.toggle("open");
     }
 
+    function toggleSugestao() {
+      const popup = document.getElementById("sugestaoPopup");
+      popup.style.display = popup.style.display === "block" ? "none" : "block";
+    }
+
     const toggles = document.querySelectorAll('.submenu-toggle');
     toggles.forEach(toggle => {
       toggle.addEventListener('click', () => {
         toggle.parentElement.classList.toggle('active');
       });
+    });
+
+    // Alerta de envio de sugestão
+    document.getElementById("sugestaoForm").addEventListener("submit", function(event) {
+      alert("Sugestão enviada com sucesso! Obrigado pela colaboração.");
     });
   </script></body>
 </html>
