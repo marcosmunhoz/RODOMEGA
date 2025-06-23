@@ -59,48 +59,151 @@
 </head>
 <body>
     <a href="../index.html"><button>🏠 Voltar para Início</button></a>
-    <button id="toggleTabelaBtn" onclick="toggleTabela()">▶️ Mostrar Trechos</button>
-    <div id="tabelaTrecho" style="height: 250px; overflow-y: auto; margin-top: 10px; display: none;">
-      <table>
-        <thead>
-          <tr>
-            <th>Rodovia</th>
-            <th>KM Inicial</th>
-            <th>KM Final</th>
-            <th>Município</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>SP-133 – João Hermano Neto</td><td>000,000</td><td>010,649</td><td>Limeira</td></tr>
-          <tr><td>SP-135 – Margarida da Graça Martins</td><td>000,000</td><td>008,539</td><td>Santa Bárbara d'Oeste</td></tr>
-          <tr><td>SP-147 – Eng. João Tosello</td><td>090,950</td><td>106,320</td><td>Limeira</td></tr>
-          <tr><td>SP-147 – Dep. Laércio Corte</td><td>111,748</td><td>122,849</td><td>Mogi Mirim</td></tr>
-          <tr><td>SP-151 – Dr. João Mendes da Silva Júnior</td><td>000,000</td><td>004,779</td><td>Limeira</td></tr>
-          <tr><td>SP-191 – Wilson Finardi</td><td>025,300</td><td>058,639</td><td>Araras</td></tr>
-          <tr><td>SP-304 – Luiz de Queiroz</td><td>131,500</td><td>146,556</td><td>Santa Bárbara d'Oeste</td></tr>
-          <tr><td>SP-306 – Luiz Ometto</td><td>009,730</td><td>039,259</td><td>Santa Bárbara d'Oeste</td></tr>
-          <tr><td>SP-310 – Washington Luís</td><td>153,250</td><td>161,889</td><td>Cordeirópolis</td></tr>
-          <tr><td>SP-316 – Constantino Peruchi</td><td>157,000</td><td>165,489</td><td>Cordeirópolis</td></tr>
-          <tr><td>SP-330 – Anhanguera (Limeira)</td><td>130,150</td><td>152,359</td><td>Limeira</td></tr>
-          <tr><td>SP-330 – Anhanguera (Cordeirópolis)</td><td>152,360</td><td>160,399</td><td>Cordeirópolis</td></tr>
-          <tr><td>SP-330 – Anhanguera (Araras)</td><td>160,400</td><td>181,269</td><td>Araras</td></tr>
-          <tr><td>SP-348 – Bandeirantes (Sta Bárbara d’Oeste)</td><td>123,590</td><td>139,319</td><td>Santa Bárbara d'Oeste</td></tr>
-          <tr><td>SP-348 – Bandeirantes (Limeira)</td><td>139,320</td><td>165,819</td><td>Limeira</td></tr>
-          <tr><td>SP-348 – Bandeirantes (Cordeirópolis)</td><td>165,820</td><td>172,000</td><td>Cordeirópolis</td></tr>
-          <tr><td>SPI-165/330 – Gilberto Carlos Penteado Telles</td><td>000,000</td><td>004,670</td><td>Araras</td></tr>
-        </tbody>
-      </table>
-    </div>
+
 <!-- Botão já existente para abrir o carrossel -->
 <button onclick="document.getElementById('carousel-container').style.display = 'block'">
-  Ver Tabelas por SP
+  Meu Trecho
 </button>
 
 <!-- Container do carrossel -->
 <div id="carousel-container" style="display:none; overflow: hidden; position: relative;">
   <div id="carousel" style="display: flex; transition: transform 0.3s ease;">
     
-    <!-- Tabelas por SP -->
+    <!-- Meu Trecho -->
+    
+    <div class="tabela"><h3>SP-133</h3>
+    <table border="1">
+      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
+      <tr><td>João Hermano Neto</td><td>000,000</td><td>010,649</td><td>Limeira</td></tr>
+    </table>
+    </div>
+
+    <div class="tabela"><h3>SP-135</h3>
+    <table border="1">
+      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
+      <tr><td>Margarida da Graça Martins</td><td>000,000</td><td>008,539</td><td>Santa B. d'Oeste</td></tr>
+    </table>
+    </div>
+
+    <div class="tabela"><h3>SP-147</h3>
+    <table border="1">
+      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
+      <tr><td>Eng. João Tosello</td><td>090,950</td><td>106,320</td><td>Limeira</td></tr>
+    </table>
+    </div>
+
+    <div class="tabela"><h3>SP-147</h3>
+    <table border="1">
+      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
+      <tr><td>Dep. Laércio Corte</td><td>111,748</td><td>122,849</td><td>Mogi Mirim</td></tr>
+    </table>
+    </div>
+
+    <div class="tabela"><h3>SP-151</h3>
+    <table border="1">
+      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
+      <tr><td>Dr.João Mendes da S. Junior</td><td>000,000</td><td>004,779</td><td>Limeira</td></tr>
+    </table>
+    </div>
+
+    <div class="tabela"><h3>SP-191</h3>
+    <table border="1">
+      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
+      <tr><td>Wilson Finardi</td><td>025,300</td><td>058,639</td><td>Araras</td></tr>
+    </table>
+    </div>
+
+    <div class="tabela"><h3>SP-304</h3>
+    <table border="1">
+      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
+      <tr><td>Luiz de Queiroz</td><td>131,500</td><td>146,556</td><td>Santa B. d'Oeste</td></tr>
+    </table>
+    </div>
+
+    <div class="tabela"><h3>SP-306</h3>
+    <table border="1">
+      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
+      <tr><td>Luiz Ometto</td><td>009,730</td><td>039,259</td><td>Santa B. d'Oeste</td></tr>
+    </table>
+    </div>
+
+    <div class="tabela"><h3>SP-310</h3>
+    <table border="1">
+      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
+      <tr><td>Whashington Luis</td><td>153,250</td><td>161,889</td><td>Corderópolis</td></tr>
+    </table>
+    </div>
+
+    <div class="tabela"><h3>SP-316</h3>
+    <table border="1">
+      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
+      <tr><td>Constantino Peruchi</td><td>157,000</td><td>165,489</td><td>Cordeirópolis</td></tr>
+    </table>
+    </div>
+
+    <div class="tabela"><h3>SP-330</h3>
+    <table border="1">
+      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
+      <tr><td>Anhanguera</td><td>090,950</td><td>106,320</td><td>Limeira</td></tr>
+    </table>
+    </div>
+
+    <div class="tabela"><h3>SP-330</h3>
+    <table border="1">
+      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
+      <tr><td>Anhanguera</td><td>152,360</td><td>160,399</td><td>Cordeirópolis</td></tr>
+    </table>
+    </div>
+
+    <div class="tabela"><h3>SP-330</h3>
+    <table border="1">
+      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
+      <tr><td>Anhanguera</td><td>160,400</td><td>181,269</td><td>Araras</td></tr>
+    </table>
+    </div>
+
+    <div class="tabela"><h3>SP-348</h3>
+    <table border="1">
+      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
+      <tr><td>Bandeirantes</td><td>123,590</td><td>139,319</td><td>Sta B. d'Oeste</td></tr>
+    </table>
+    </div>
+
+    <div class="tabela"><h3>SP-348</h3>
+    <table border="1">
+      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
+      <tr><td>Bandeirantes</td><td>139,320</td><td>165,819</td><td>Limeira</td></tr>
+    </table>
+    </div>
+
+    <div class="tabela"><h3>SP-348</h3>
+    <table border="1">
+      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
+      <tr><td>Bandeirantes</td><td>165,820</td><td>172,000</td><td>Cordeirópolis</td></tr>
+    </table>
+    </div>
+
+    <div class="tabela"><h3>SPI-165/330</h3>
+    <table border="1">
+      <tr><th>Rodovia</th><th>KM Inicial</th><th>KM Final</th><th>Município</th></tr>
+      <tr><td>Gilberto C. P. Telles</td><td>000,000</td><td>004,670</td><td>Araras</td></tr>
+    </table>
+    </div>
+     <!-- Adicione as demais SPs da mesma forma... -->
+
+
+
+      
+<!-- Botão já existente para abrir o carrossel -->
+<button onclick="document.getElementById('carousel-container').style.display = 'block'">
+  Placas R-19
+</button>
+
+<!-- Container do carrossel -->
+<div id="carousel-container" style="display:none; overflow: hidden; position: relative;">
+  <div id="carousel" style="display: flex; transition: transform 0.3s ease;">
+    
+    <!-- Placas R-19 e R-27 -->
     
     <div class="tabela"><h3>SP 348</h3>
     <table border="1">
@@ -125,8 +228,7 @@
 
     <!-- Adicione as demais SPs da mesma forma... -->
 
-  </div>
-</div>
+
 
 <style>
   .tabela {
@@ -173,18 +275,5 @@
     <iframe src="https://www.google.com/maps/d/embed?mid=1JceMEgD2KnOFb5aGK5tLGBCu7ZOxP80&amp;ehbc=2E312F&amp;noprof=1" allowfullscreen></iframe>
   </div>
 
-  <script>
-    function toggleTabela() {
-      const tabela = document.getElementById("tabelaTrecho");
-      const botao = document.getElementById("toggleTabelaBtn");
-      if (tabela.style.display === "none" || tabela.style.display === "") {
-        tabela.style.display = "block";
-        botao.textContent = "🔽 Ocultar Tabela de Trecho";
-      } else {
-        tabela.style.display = "none";
-        botao.textContent = "▶️ Mostrar Tabela de Trecho";
-      }
-    }
-  </script>
 </body>
 </html>
