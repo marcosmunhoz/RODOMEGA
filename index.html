@@ -9,10 +9,10 @@
     html, body {
       height: 100%;
       font-family: Arial, sans-serif;
-      background-image: url("html/Asfalto.jpg"); /* Use o caminho da imagem */
-          background-repeat: repeat; /* Repetir a textura se não cobrir toda a página */
-          background-size: cover; /* Para a imagem cobrir toda a área do fundo, mantendo a proporção */
-          background-position: center; /* Para centralizar a imagem, se necessário */
+      background-image: url("html/Asfalto.jpg");
+      background-repeat: repeat;
+      background-size: cover;
+      background-position: center;
       color: #ffcc00;
     }
     .menu-btn {
@@ -41,10 +41,7 @@
       font-weight: bold;
       z-index: 1001;
     }
-    .sugestao-btn.enviado {
-      background-color: #00cc66;
-      color: #fff;
-    }
+    .sugestao-btn.enviado { background-color: #00cc66; color: #fff; }
     .sugestao-popup {
       display: none;
       position: fixed;
@@ -79,9 +76,9 @@
     }
     .sidebar {
       position: fixed;
-      left: -220px;
+      left: -260px;
       top: 0;
-      width: 220px;
+      width: 260px;
       height: 100%;
       background-color: #111;
       color: #ffcc00;
@@ -90,12 +87,10 @@
       transition: left 0.3s;
       z-index: 1000;
     }
-    .sidebar.open {
-      left: 0;
-    }
+    .sidebar.open { left: 0; }
     .menu-logo {
       text-align: center;
-      font-size: 18px;
+      font-size: 20px;
       font-weight: bold;
       margin-bottom: 15px;
     }
@@ -104,7 +99,7 @@
       padding: 0 10px;
     }
     .menu li {
-      padding: 10px;
+      padding: 12px;
       transition: background 0.3s;
       border-bottom: 1px solid #333;
     }
@@ -126,59 +121,38 @@
       list-style: none;
       padding-left: 15px;
     }
-    .menu li.active .submenu {
-      display: block;
-    }
-    .capa {
-      width: 100%;
-      height: 250px;
-      background-image: url('html/sirene.gif');
-      background-size: cover;
-      background-position: center;
-    }
-    .title-header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px 0;
-      background-color: #000;
-    }
-    .title-header h1 {
-      color: #ffcc00;
-      font-size: 32px;
-      text-shadow: 2px 2px 0 #000;
-      margin-left: 60px;
-    }
+    .menu li.active .submenu { display: block; }
     .gallery-container {
-      width: calc(100% - 240px);
+      max-width: 90%;
+      margin: 30px auto 0;
       max-height: 300px;
       overflow: hidden;
       position: relative;
-      margin-left: auto;
-      margin-right: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ffcc00;
     }
     .gallery-container img {
       width: 100%;
       height: auto;
       display: none;
     }
-    .gallery-container img.active {
-      display: block;
-    }
+    .gallery-container img.active { display: block; }
     .quadro-avisos {
-      margin-left: auto;
-      margin-right: 20px;
-      margin-top: 20px;
-      padding: 15px;
+      max-width: 90%;
+      margin: 20px auto;
+      padding: 20px;
       border: 2px dashed #ffcc00;
       background-color: #111;
       color: #ffcc00;
       text-align: center;
-      width: calc(100% - 240px);
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ffcc00;
     }
     .conteudo {
-      margin: 20px;
+      margin: 20px auto;
+      max-width: 90%;
       padding-bottom: 100px;
+      text-align: center;
     }
     footer {
       position: fixed;
@@ -192,11 +166,17 @@
       color: #ffcc00;
       z-index: 100;
     }
+    @media (max-width: 768px) {
+      .sidebar { width: 100%; left: -100%; }
+      .sidebar.open { left: 0; }
+      .gallery-container, .quadro-avisos, .conteudo { max-width: 95%; }
+    }
   </style>
 </head>
 <body>
   <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
-  <button class="sugestao-btn" onclick="toggleSugestao()">💬 Sugestão</button>  <div class="sugestao-popup" id="sugestaoPopup">
+  <button class="sugestao-btn" onclick="toggleSugestao()">💬 Sugestão</button>
+  <div class="sugestao-popup" id="sugestaoPopup">
     <form action="https://formspree.io/f/mblyzdqz" method="POST">
       <label>Seu Nome:<textarea name="nome" required></textarea></label>
       <label>Seu email:<input type="email" name="email" required></label>
@@ -207,15 +187,13 @@
     <div class="menu-logo">RODOMEGA</div>
     <ul class="menu">
       <li><a href="index.html">🏠 Início</a></li>
-      <li>
-        <span class="submenu-toggle">🛠️ Formulários</span>
+      <li><span class="submenu-toggle">🛠️ Formulários</span>
         <ul class="submenu">
           <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScAsayIw8JXcY8sIYy2ZQViqbAoKUSZOoKL27mnwXDIPjgK5w/viewform">1º Escalão</a></li>
           <li><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=VAxWvfUh9UqnCmelKDNpc2he-LboKNBOl8SkVLbrZWFUME1BQ1dWUVJFVUI2WTM1RkNVQTA4OVJPWi4u&origin=QRCode">Amigos do Trecho</a></li>
         </ul>
       </li>
-      <li>
-        <span class="submenu-toggle">📡 Links Intranet</span>
+      <li><span class="submenu-toggle">📡 Links Intranet</span>
         <ul class="submenu">
           <li><a href="http://intranet.policiamilitar.sp.gov.br/">📡 Intranet</a></li>
           <li><a href="http://10.61.15.39/Login">📊 PPRI</a></li>
@@ -232,16 +210,15 @@
       <li><a href="html/mapa.html">🗺️ Mapa da Área</a></li>
       <li><a href="#">☎️ Contatos Úteis</a></li>
     </ul>
-  </aside>
-    <div class="gallery-container">
+  </aside>  <div class="gallery-container">
     <img src="html/Paisagem1.jpg" class="active" alt="Imagem 1">
     <img src="html/Paisagem2.jpg" alt="Imagem 2">
     <img src="html/Paisagem3.jpg" alt="Imagem 3">
     <img src="html/Paisagem4.jpg" alt="Imagem 4">
   </div>  <div class="quadro-avisos">
     <h3>Quadro de Avisos</h3>
-    <p>A página Mapa do trecho ainda está em desenvolvimento, será inserido todas as placas R-19 nos respectivos KM de cada SP e será inserido os endereços de todas as BOP, Hospitais, Delegacias.
-Para mais sugestões e implementos envie sua sugestão.</p>
+    <p>A página Mapa do trecho ainda está em desenvolvimento, será inserido todas as placas R-19 nos respectivos KM de cada SP e será inserido os endereços de todas as BOP, Hospitais, Delegacias.<br>
+    Para mais sugestões e implementos envie sua sugestão.</p>
   </div>  <div class="conteudo">
     <p>🔧 Conteúdo do site será inserido aqui.</p>
   </div>  <footer>
