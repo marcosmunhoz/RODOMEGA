@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mapa de Trecho</title>
   <style>
     body {
@@ -56,13 +56,24 @@
     }
 
     #carousel-container, #placas-container {
-      position: relative;
       width: 100%;
       max-width: 600px;
       margin: 0 auto 40px;
       background-color: #111;
       border-radius: 10px;
       overflow: hidden;
+      padding: 20px 20px 10px 20px;
+    }
+
+    /* Container dos botões, em linha e espaçados */
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .nav-buttons button {
+      margin: 0;
     }
 
     .carousel {
@@ -82,31 +93,6 @@
       font-size: 16px;
     }
 
-    /* Botões de navegação laterais afastados */
-    .btn-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: #ffcc00;
-      border: none;
-      padding: 8px 12px;
-      font-size: 20px;
-      font-weight: bold;
-      cursor: pointer;
-      border-radius: 5px;
-      color: #000;
-      user-select: none;
-      z-index: 10;
-    }
-
-    #carousel-prev, #placas-prev {
-      left: -25px;
-    }
-
-    #carousel-next, #placas-next {
-      right: -25px;
-    }
-
     /* Responsividade */
     @media (max-width: 600px) {
       table, th, td {
@@ -116,35 +102,32 @@
       iframe {
         height: 300px;
       }
-
-      #carousel-prev, #placas-prev {
-        left: -15px;
-      }
-
-      #carousel-next, #placas-next {
-        right: -15px;
-      }
     }
   </style>
 </head>
 <body>
   <a href="../index.html"><button>🏠 Voltar para Início</button></a>
 
-  <div class="mensagem-carrossel">Use os botões para ver a próxima tabela 👉</div>  
+  <div class="mensagem-carrossel">Use os botões para ver a próxima tabela 👉</div>
 
   <!-- Carrossel de Trechos -->
   <div id="carousel-container">
-    <button id="carousel-prev" class="btn-nav" aria-label="Tabela anterior">‹</button>
+    <div class="nav-buttons">
+      <button id="carousel-prev" aria-label="Tabela anterior">‹ Anterior</button>
+      <button id="carousel-next" aria-label="Próxima tabela">Próximo ›</button>
+    </div>
     <div id="carousel" class="carousel"></div>
-    <button id="carousel-next" class="btn-nav" aria-label="Próxima tabela">›</button>
   </div>
 
-  <!-- Carrossel de Placas -->
   <div class="mensagem-carrossel">Use os botões para ver as placas das rodovias 👉</div>
+
+  <!-- Carrossel de Placas -->
   <div id="placas-container">
-    <button id="placas-prev" class="btn-nav" aria-label="Placa anterior">‹</button>
+    <div class="nav-buttons">
+      <button id="placas-prev" aria-label="Placa anterior">‹ Anterior</button>
+      <button id="placas-next" aria-label="Próxima placa">Próximo ›</button>
+    </div>
     <div id="placas-carousel" class="carousel"></div>
-    <button id="placas-next" class="btn-nav" aria-label="Próxima placa">›</button>
   </div>
 
   <!-- Mapa final -->
