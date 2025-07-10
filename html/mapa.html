@@ -12,6 +12,7 @@
       margin: 0;
       padding: 0;
     }
+
     button {
       background-color: #ffcc00;
       color: #000;
@@ -24,9 +25,9 @@
     }
 
     .tabela {
-      min-width: 100%;
       box-sizing: border-box;
       padding: 10px;
+      width: 100%;
     }
 
     table {
@@ -55,27 +56,24 @@
     }
 
     #carousel-container, #placas-container {
-      overflow: hidden;
       position: relative;
       width: 100%;
       max-width: 600px;
       margin: 0 auto 40px;
       background-color: #111;
       border-radius: 10px;
-      box-sizing: border-box;
-      padding: 10px 40px; /* espaço para os botões */
+      overflow: hidden;
     }
 
     .carousel {
       display: flex;
-      transition: transform 0.3s ease;
       width: 100%;
-      touch-action: pan-y;
+      transition: transform 0.3s ease;
     }
 
-    /* Correção para mostrar só 1 tabela por vez */
     .carousel > .tabela {
       flex: 0 0 100%;
+      width: 100%;
       box-sizing: border-box;
     }
 
@@ -85,7 +83,6 @@
       font-size: 16px;
     }
 
-    /* Botões de navegação */
     .btn-nav {
       position: absolute;
       top: 50%;
@@ -103,10 +100,11 @@
     }
 
     #carousel-prev, #placas-prev {
-      left: 5px;
+      left: 0;
     }
+
     #carousel-next, #placas-next {
-      right: 5px;
+      right: 0;
     }
 
     @media (max-width: 600px) {
@@ -120,7 +118,6 @@
 
       #carousel-container, #placas-container {
         max-width: 95%;
-        padding: 10px 30px;
       }
     }
   </style>
@@ -129,27 +126,19 @@
   <a href="../index.html"><button>🏠 Voltar para Início</button></a>
 
   <div class="mensagem-carrossel">Use os botões para ver a próxima tabela 👉</div>  
-
-  <!-- Carrossel de Trechos -->
   <div id="carousel-container">
     <button id="carousel-prev" class="btn-nav" aria-label="Tabela anterior">‹</button>
-    <div id="carousel" class="carousel">
-      <!-- Inserido via script -->
-    </div>
+    <div id="carousel" class="carousel"></div>
     <button id="carousel-next" class="btn-nav" aria-label="Próxima tabela">›</button>
   </div>
 
-  <!-- Carrossel de Placas -->
   <div class="mensagem-carrossel">Use os botões para ver as placas das rodovias 👉</div>
   <div id="placas-container">
     <button id="placas-prev" class="btn-nav" aria-label="Placa anterior">‹</button>
-    <div id="placas-carousel" class="carousel">
-      <!-- Inserido via script -->
-    </div>
+    <div id="placas-carousel" class="carousel"></div>
     <button id="placas-next" class="btn-nav" aria-label="Próxima placa">›</button>
   </div>
 
-  <!-- Mapa final, separado -->
   <div class="mapa-final">
     <h3 style="text-align: center;">🗺️ Mapa do Trecho Completo</h3>
     <iframe src="https://www.google.com/maps/d/embed?mid=1JceMEgD2KnOFb5aGK5tLGBCu7ZOxP80&amp;ehbc=2E312F&amp;noprof=1" allowfullscreen></iframe>
@@ -212,32 +201,27 @@
       `;
     }
 
-    // Inserir conteúdo das tabelas
     const carousel = document.getElementById('carousel');
     const placasCarousel = document.getElementById('placas-carousel');
 
     carousel.innerHTML = trechos.map(gerarTabelaTrecho).join('');
     placasCarousel.innerHTML = placas.map(gerarTabelaPlacas).join('');
 
-    // Variáveis para controle dos índices
     let currentIndexCarousel = 0;
     let currentIndexPlacas = 0;
 
-    // Atualiza a posição do carrossel
     function updateCarouselPosition() {
       carousel.style.transform = `translateX(-${currentIndexCarousel * 100}%)`;
       document.getElementById('carousel-prev').disabled = currentIndexCarousel === 0;
       document.getElementById('carousel-next').disabled = currentIndexCarousel === trechos.length - 1;
     }
 
-    // Atualiza a posição do carrossel placas
     function updatePlacasPosition() {
       placasCarousel.style.transform = `translateX(-${currentIndexPlacas * 100}%)`;
       document.getElementById('placas-prev').disabled = currentIndexPlacas === 0;
       document.getElementById('placas-next').disabled = currentIndexPlacas === placas.length - 1;
     }
 
-    // Event listeners para botões de navegação do carrossel de trechos
     document.getElementById('carousel-prev').addEventListener('click', () => {
       if (currentIndexCarousel > 0) {
         currentIndexCarousel--;
@@ -252,7 +236,6 @@
       }
     });
 
-    // Event listeners para botões de navegação do carrossel de placas
     document.getElementById('placas-prev').addEventListener('click', () => {
       if (currentIndexPlacas > 0) {
         currentIndexPlacas--;
@@ -267,10 +250,8 @@
       }
     });
 
-    // Inicializa os carrosséis
     updateCarouselPosition();
     updatePlacasPosition();
-
   </script>
 </body>
 </html>
