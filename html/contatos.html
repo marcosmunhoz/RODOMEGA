@@ -1,21 +1,61 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Discagem Telefônica</title>
+    <title>Discagem Telefônica - Acesso Restrito</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            padding: 20px;
             background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        #login-container, #content {
+            max-width: 400px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+        }
+        #content {
+            display: none;
         }
         h1 {
             color: #333;
+            text-align: center;
         }
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #error-message {
+            color: red;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
         #search {
             width: 100%;
-            max-width: 400px;
             padding: 10px;
             font-size: 16px;
             margin-bottom: 20px;
@@ -26,7 +66,6 @@
         .phone-list {
             list-style: none;
             padding: 0;
-            max-width: 400px;
         }
         .phone-list li {
             background: #fff;
@@ -54,28 +93,62 @@
     </style>
 </head>
 <body>
-    <h1>Lista de Números para Chamada</h1>
-    <input type="text" id="search" placeholder="Pesquisar contato pelo nome..." />
+    <div id="login-container">
+        <h1>Login</h1>
+        <div id="error-message"></div>
+        <input type="password" id="password" placeholder="Digite a senha" />
+        <button id="login-btn">Entrar</button>
+    </div>
 
-    <ul class="phone-list" id="phoneList">
-        <li>
-            <span class="contact-name">CGP 1º Pel</span>
-            <a href="tel:+5519996815972">+55 19 99681-5972</a>
-        </li>
-        <li>
-            <span class="contact-name">PDR 44.0</span>
-            <a href="tel:+5519971377944">+55 19 97137-7944</a>
-        </li>
-        <li>
-            <span class="contact-name">CCO Autoban</span>
-            <a href="tel:+5511943148105">+55 11 94314-8105</a>
-        </li>
-    </ul>
+    <div id="content">
+        <h1>Lista de Números para Chamada</h1>
+        <input type="text" id="search" placeholder="Pesquisar contato pelo nome..." />
+        <ul class="phone-list" id="phoneList">
+            <li>
+                <span class="contact-name">CGP 1º Pel</span>
+                <a href="tel:+5519996815972">+55 19 99681-5972</a>
+            </li>
+            <li>
+                <span class="contact-name">PDR 44.0</span>
+                <a href="tel:+5519971377944">+55 19 97137-7944</a>
+            </li>
+            <li>
+                <span class="contact-name">CCO Autoban</span>
+                <a href="tel:+5511943148105">+55 11 94314-8105</a>
+            </li>
+        </ul>
+    </div>
 
     <script>
+        const loginBtn = document.getElementById('login-btn');
+        const passwordInput = document.getElementById('password');
+        const loginContainer = document.getElementById('login-container');
+        const content = document.getElementById('content');
+        const errorMessage = document.getElementById('error-message');
         const searchInput = document.getElementById('search');
         const phoneList = document.getElementById('phoneList');
         const contacts = phoneList.getElementsByTagName('li');
+
+        const PASSWORD = '4cia1pel'; // senha configurada
+
+        loginBtn.addEventListener('click', () => {
+            const enteredPassword = passwordInput.value;
+            if (enteredPassword === PASSWORD) {
+                // senha correta - mostra o conteúdo e esconde login
+                loginContainer.style.display = 'none';
+                content.style.display = 'block';
+                errorMessage.textContent = '';
+                passwordInput.value = '';
+            } else {
+                errorMessage.textContent = 'Senha incorreta. Tente novamente.';
+            }
+        });
+
+        passwordInput.addEventListener('keyup', (event) => {
+            if (event.key === 'Enter') {
+                loginBtn.click();
+            }
+        });
 
         searchInput.addEventListener('input', function() {
             const filter = this.value.toLowerCase();
