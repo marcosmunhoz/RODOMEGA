@@ -164,8 +164,8 @@
     }
 
     .gallery-container img.active {
-  display: block;
-}
+      display: block;
+    }
 
     /* Quadro de avisos */
     .quadro-avisos {
@@ -215,6 +215,19 @@
       }
       .conteudo {
         font-size: 1rem;
+      }
+    }
+
+    /* Altura fixa da galeria no desktop */
+    @media (min-width: 769px) {
+      .gallery-container {
+        height: 400px; /* ajuste a altura como quiser */
+        overflow: hidden;
+      }
+      .gallery-container img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
       }
     }
   </style>
