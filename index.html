@@ -219,17 +219,22 @@
     }
 
     /* Altura fixa da galeria no desktop */
-    @media (min-width: 769px) {
-      .gallery-container {
-        height: 400px; /* ajuste a altura como quiser */
-        overflow: hidden;
-      }
-      .gallery-container img {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-      }
-    }
+   @media (min-width: 769px) {
+  .gallery-container {
+    height: 400px; /* altura fixa */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000; /* opcional, para mostrar o fundo atrás das imagens */
+  }
+  .gallery-container img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain; /* imagem inteira sem cortes */
+    display: block;
+  }
+}
   </style>
 </head>
 <body>
