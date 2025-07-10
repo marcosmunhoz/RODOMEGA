@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Discagem Telefônica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+        }
+        #search {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        .phone-list {
+            list-style: none;
+            padding: 0;
+            max-width: 400px;
+        }
+        .phone-list li {
+            background: #fff;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .phone-list a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 18px;
+        }
+        .phone-list a:hover {
+            text-decoration: underline;
+        }
+        .contact-name {
+            font-weight: bold;
+            margin-right: 10px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Números para Chamada</h1>
+    <input type="text" id="search" placeholder="Pesquisar contato pelo nome..." />
+
+    <ul class="phone-list" id="phoneList">
+        <li>
+            <span class="contact-name">CGP 1º Pel</span>
+            <a href="tel:+5519996815972">+55 19 99681-5972</a>
+        </li>
+        <li>
+            <span class="contact-name">PDR 44.0</span>
+            <a href="tel:+5519971377944">+55 19 97137-7944</a>
+        </li>
+        <li>
+            <span class="contact-name">CCO Autoban</span>
+            <a href="tel:+5511943148105">+55 11 94314-8105</a>
+        </li>
+    </ul>
+
+    <script>
+        const searchInput = document.getElementById('search');
+        const phoneList = document.getElementById('phoneList');
+        const contacts = phoneList.getElementsByTagName('li');
+
+        searchInput.addEventListener('input', function() {
+            const filter = this.value.toLowerCase();
+
+            for (let i = 0; i < contacts.length; i++) {
+                const name = contacts[i].querySelector('.contact-name').textContent.toLowerCase();
+                if (name.includes(filter)) {
+                    contacts[i].style.display = '';
+                } else {
+                    contacts[i].style.display = 'none';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
