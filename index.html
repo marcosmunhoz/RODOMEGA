@@ -136,23 +136,26 @@
       padding-right: 15px;
     }
 
-    /* Galeria */
     .gallery-container {
-      margin: 60px auto 40px; /* aumentei o espaço em cima para descer a galeria */
-      max-height: 350px;
-      overflow: hidden;
-      position: relative;
-      border-radius: 10px;
-      box-shadow: 0 0 15px #ffcc00;
-      background-color: rgba(17,17,17,0.8);
-    }
-    .gallery-container img {
-      width: 100%;
-      height: auto;
-      display: none;
-      border-radius: 10px;
-    }
-    .gallery-container img.active { display: block; }
+  max-width: 800px; /* tamanho máximo para desktop */
+  margin: 60px auto 0; /* margem maior para baixar a galeria */
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ffcc00;
+  position: relative;
+  overflow: visible; /* não cortar a imagem */
+}
+
+.gallery-container img {
+  width: 100%;
+  height: auto; /* mantém proporção da imagem */
+  display: none;
+  border-radius: 10px;
+}
+
+.gallery-container img.active {
+  display: block;
+}
+
 
     /* Quadro de avisos */
     .quadro-avisos {
@@ -192,12 +195,12 @@
     }
 
     /* Responsividade */
-    @media (max-width: 768px) {
-      .sidebar { width: 100%; left: -100%; }
-      .sidebar.open { left: 0; }
-      .gallery-container, .quadro-avisos, .conteudo {
-        max-width: 95%;
-      }
+@media (max-width: 768px) {
+  .gallery-container {
+    max-width: 95%;
+    margin: 40px auto 0;
+  }
+}
       .gallery-container {
         margin: 40px auto 30px;
         max-height: 250px;
