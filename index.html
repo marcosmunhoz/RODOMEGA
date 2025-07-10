@@ -136,30 +136,40 @@
       padding-right: 15px;
     }
 
+    /* Título grande amarelo com sombra preta */
+    .titulo-principal {
+      font-size: 3.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 120px;
+      margin-bottom: 60px;
+      color: #ffcc00;
+      text-shadow: 2px 2px 0 #000;
+    }
+
     .gallery-container {
-  max-width: 800px; /* tamanho máximo para desktop */
-  margin: 120px auto 0; /* margem maior para baixar a galeria */
-  border-radius: 10px;
-  box-shadow: 0 0 10px #ffcc00;
-  position: relative;
-  overflow: visible; /* não cortar a imagem */
-}
+      max-width: 800px;
+      margin: 40px auto 0;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ffcc00;
+      position: relative;
+      overflow: visible;
+    }
 
-.gallery-container img {
-  width: 100%;
-  height: auto; /* mantém proporção da imagem */
-  display: none;
-  border-radius: 10px;
-}
+    .gallery-container img {
+      width: 100%;
+      height: auto;
+      display: none;
+      border-radius: 10px;
+    }
 
-.gallery-container img.active {
-  display: block;
-}
-
+    .gallery-container img.active {
+      display: block;
+    }
 
     /* Quadro de avisos */
     .quadro-avisos {
-      margin: 0 auto 30px;
+      margin: 100px auto 30px;
       padding: 25px 30px;
       border: 2px dashed #ffcc00;
       background-color: #111;
@@ -173,7 +183,7 @@
 
     /* Conteúdo */
     .conteudo {
-      margin-bottom: 120px; /* espaço para o footer fixo */
+      margin-bottom: 120px;
       text-align: center;
       font-size: 1.1rem;
       color: #ffcc00;
@@ -195,15 +205,10 @@
     }
 
     /* Responsividade */
-@media (max-width: 768px) {
-  .gallery-container {
-    max-width: 95%;
-    margin: 40px auto 0;
-  }
-}
+    @media (max-width: 768px) {
       .gallery-container {
-        margin: 40px auto 30px;
-        max-height: 250px;
+        max-width: 95%;
+        margin: 40px auto 0;
       }
       .quadro-avisos {
         font-size: 1rem;
@@ -256,22 +261,26 @@
     </ul>
   </aside>
 
-  <div class="gallery-container">
-    <img src="html/Paisagem1.jpg" class="active" alt="Imagem 1">
-    <img src="html/Paisagem2.jpg" alt="Imagem 2">
-    <img src="html/Paisagem3.jpg" alt="Imagem 3">
-    <img src="html/Paisagem4.jpg" alt="Imagem 4">
-  </div>
+  <main>
+    <h1 class="titulo-principal">4ª Cia 1º Pel</h1>
 
-  <div class="quadro-avisos">
-    <h3>Quadro de Avisos</h3>
-    <p>A página Mapa do trecho ainda está em desenvolvimento, será inserido todas as placas R-19 nos respectivos KM de cada SP e será inserido os endereços de todas as BOP, Hospitais, Delegacias.<br>
-    Para mais sugestões e implementos envie sua sugestão.</p>
-  </div>
+    <div class="gallery-container">
+      <img src="html/Paisagem1.jpg" class="active" alt="Imagem 1">
+      <img src="html/Paisagem2.jpg" alt="Imagem 2">
+      <img src="html/Paisagem3.jpg" alt="Imagem 3">
+      <img src="html/Paisagem4.jpg" alt="Imagem 4">
+    </div>
 
-  <div class="conteudo">
-    <p>🔧 Conteúdo do site será inserido aqui.</p>
-  </div>
+    <div class="quadro-avisos">
+      <h3>Quadro de Avisos</h3>
+      <p>A página Mapa do trecho ainda está em desenvolvimento, será inserido todas as placas R-19 nos respectivos KM de cada SP e será inserido os endereços de todas as BOP, Hospitais, Delegacias.<br>
+      Para mais sugestões e implementos envie sua sugestão.</p>
+    </div>
+
+    <div class="conteudo">
+      <p>🔧 Conteúdo do site será inserido aqui.</p>
+    </div>
+  </main>
 
   <footer>
     <p>Desenvolvido pelo Sd PM 194528-9 GUIDINI.</p>
