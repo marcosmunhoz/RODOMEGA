@@ -26,7 +26,7 @@
             color: #333;
             text-align: center;
         }
-        input[type="password"] {
+        input[type="password"], #search {
             width: 100%;
             padding: 12px;
             font-size: 16px;
@@ -53,16 +53,6 @@
             margin-bottom: 10px;
             text-align: center;
         }
-
-        #search {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            margin-bottom: 20px;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
         .phone-list {
             list-style: none;
             padding: 0;
@@ -77,18 +67,30 @@
             justify-content: space-between;
             align-items: center;
         }
-        .phone-list a {
-            text-decoration: none;
-            color: #007bff;
-            font-size: 18px;
-        }
-        .phone-list a:hover {
-            text-decoration: underline;
-        }
         .contact-name {
             font-weight: bold;
-            margin-right: 10px;
             color: #333;
+            flex: 1;
+        }
+        .contact-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-left: 10px;
+        }
+        .contact-actions a {
+            text-decoration: none;
+            font-size: 20px;
+            color: #007bff;
+            transition: color 0.3s;
+        }
+        .contact-actions a:hover {
+            color: #0056b3;
+        }
+        .phone-number {
+            font-size: 18px;
+            color: #007bff;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -106,15 +108,24 @@
         <ul class="phone-list" id="phoneList">
             <li>
                 <span class="contact-name">CGP 1º Pel</span>
-                <a href="tel:+5519996815972">+55 19 99681-5972</a>
+                <div class="contact-actions">
+                    <a class="phone-number" href="tel:+5519996815972">+55 19 99681-5972</a>
+                    <a href="https://wa.me/5519996815972" target="_blank" title="Enviar mensagem no WhatsApp" aria-label="WhatsApp CGP 1º Pel">📱</a>
+                </div>
             </li>
             <li>
                 <span class="contact-name">PDR 44.0</span>
-                <a href="tel:+5519971377944">+55 19 97137-7944</a>
+                <div class="contact-actions">
+                    <a class="phone-number" href="tel:+5519971377944">+55 19 97137-7944</a>
+                    <a href="https://wa.me/5519971377944" target="_blank" title="Enviar mensagem no WhatsApp" aria-label="WhatsApp PDR 44.0">📱</a>
+                </div>
             </li>
             <li>
                 <span class="contact-name">CCO Autoban</span>
-                <a href="tel:+5511943148105">+55 11 94314-8105</a>
+                <div class="contact-actions">
+                    <a class="phone-number" href="tel:+5511943148105">+55 11 94314-8105</a>
+                    <a href="https://wa.me/5511943148105" target="_blank" title="Enviar mensagem no WhatsApp" aria-label="WhatsApp CCO Autoban">📱</a>
+                </div>
             </li>
         </ul>
     </div>
@@ -129,7 +140,7 @@
         const phoneList = document.getElementById('phoneList');
         const contacts = phoneList.getElementsByTagName('li');
 
-        const PASSWORD = '4cia1pel'; // senha configurada
+        const PASSWORD = 'minhasenha123'; // senha configurada
 
         loginBtn.addEventListener('click', () => {
             const enteredPassword = passwordInput.value;
